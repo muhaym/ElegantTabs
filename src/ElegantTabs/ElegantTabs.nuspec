@@ -1,0 +1,46 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>ElegantTabs</id>
+    <version>0.1.0-pre</version>
+    <title>Elegant Tabs for Xamarin.Forms</title>
+    <authors>Abdul Muhaymin Arif</authors>
+    <owners>Fantacode Solutions LLP</owners>
+    <projectUrl>https://github.com/muhaym/ElegantTabs</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      Xamarin.Forms plugin to add additional features to Tabbed Page, like disable loading pages, setting selected and unselected icon seperately, retaining original icon colours.
+    </description>
+    <tags>xamarin xamarin.forms badge tab tabbar eleganttabs elegant tabs monodroid Xamarin.iOS android ios</tags>
+    <releaseNotes>
+      [0.1.0-pre] 
+      Initial Prelaunch with limited features and potential issues.
+    </releaseNotes>
+    <dependencies>
+      <group targetFramework="netstandard1.4">
+        <dependency id="Xamarin.Forms" version="3.1.0.583944" />
+      </group>
+      <group targetFramework="portable-net45+win+wpa81+wp80">
+        <dependency id="Xamarin.Forms" version="3.1.0.583944" />
+      </group>
+      <group targetFramework="MonoAndroid10">
+        <dependency id="Xamarin.Forms" version="3.1.0.583944" />
+      </group>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Xamarin.Forms" version="3.1.0.583944" />
+      </group>
+      <group targetFramework="net45">
+        <dependency id="Xamarin.Forms" version="3.1.0.583944" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- .net standard -->
+    <file src="ElegantTabs\ElegantTabs.Abstraction\bin\Release\netstandard2.0\ElegantTabs.*" target="lib\netstandard1.4" />
+    <!-- PCL -->
+    <file src="ElegantTabs\ElegantTabs.Abstraction\bin\Release\netstandard2.0\ElegantTabs.*" target="lib\portable-net45+win8+wpa81+wp8" />
+    <!-- droid -->
+    <file src="ElegantTabs\ElegantTabs.Android\bin\Release\ElegantTabs.*" target="lib\MonoAndroid10" />
+    <!-- iOS -->
+    <file src="ElegantTabs\ElegantTabs.iOS\bin\Release\ElegantTabs.*" target="lib\Xamarin.iOS10" />
+  </files>
+</package>
