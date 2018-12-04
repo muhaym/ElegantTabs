@@ -35,12 +35,12 @@
   </metadata>
   <files>
     <!-- .net standard -->
-    <file src="ElegantTabs\ElegantTabs.Abstraction\bin\Release\netstandard2.0\ElegantTabs.*" target="lib\netstandard1.4" />
+    <file src="..\src\ElegantTabs\ElegantTabs\ElegantTabs.Abstraction\bin\Release\netstandard2.0\ElegantTabs.*" target="lib\netstandard1.4" />
     <!-- PCL -->
-    <file src="ElegantTabs\ElegantTabs.Abstraction\bin\Release\netstandard2.0\ElegantTabs.*" target="lib\portable-net45+win8+wpa81+wp8" />
+    <file src="..\src\ElegantTabs\ElegantTabs\ElegantTabs.Abstraction\bin\Release\netstandard2.0\ElegantTabs.*" target="lib\portable-net45+win8+wpa81+wp8" />
     <!-- droid -->
-    <file src="ElegantTabs\ElegantTabs.Android\bin\Release\ElegantTabs.*" target="lib\MonoAndroid10" />
+    <file src="..\src\ElegantTabs\ElegantTabs\ElegantTabs.Android\bin\Release\ElegantTabs.*" target="lib\MonoAndroid10" />
     <!-- iOS -->
-    <file src="ElegantTabs\ElegantTabs.iOS\bin\Release\ElegantTabs.*" target="lib\Xamarin.iOS10" />
+    <file src="..\src\ElegantTabs\ElegantTabs\ElegantTabs.iOS\bin\Release\ElegantTabs.*" target="lib\Xamarin.iOS10" />
   </files>
 </package>
