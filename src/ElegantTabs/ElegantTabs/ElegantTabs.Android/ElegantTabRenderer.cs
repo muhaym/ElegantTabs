@@ -153,25 +153,28 @@ namespace ElegantTabs.Droid
         private void UpdateTab(int tabIndex)
         {
             var page = Element.GetChildPageWithTransform(tabIndex);
-            var menu = _bottomNavigationView.Menu;
+            var menu = (BottomNavigationMenuView)_bottomNavigationView.GetChildAt(0);
             //Setting Title Property and Centering
             if (Transforms.GetHideTitle(page))
             {
-                var view = _bottomNavigationView.FindViewById<BottomNavigationItemView>(menu.GetItem(tabIndex).ItemId);
+                var view = menu.GetChildAt(tabIndex);
                 if (view == null) return;
-                var viewgroup = (ViewGroup)view;
-                for (int j = 0; j < viewgroup.ChildCount; j++)
+                if (view is BottomNavigationItemView)
                 {
-                    View v = viewgroup.GetChildAt(j);
-                    if (v is ViewGroup)
+                    var viewgroup = (ViewGroup)view;
+                    for (int j = 0; j < viewgroup.ChildCount; j++)
                     {
-                        v.Visibility = ViewStates.Gone;
-                    }
-                    else
-                    {
-                        ImageView icon = (ImageView)v;
-                        FrameLayout.LayoutParams parames = (FrameLayout.LayoutParams)icon.LayoutParameters;
-                        parames.Gravity = GravityFlags.Center;
+                        View v = viewgroup.GetChildAt(j);
+                        if (v is ViewGroup)
+                        {
+                            v.Visibility = ViewStates.Gone;
+                        }
+                        else
+                        {
+                            ImageView icon = (ImageView)v;
+                            FrameLayout.LayoutParams parames = (FrameLayout.LayoutParams)icon.LayoutParameters;
+                            parames.Gravity = GravityFlags.Center;
+                        }
                     }
                 }
             }
