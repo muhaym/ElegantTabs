@@ -98,14 +98,21 @@ namespace ElegantTabs.Droid
             var page = Element.GetChildPageWithTransform(selectedIndex);
             if (!Transforms.GetDisableLoad(page))
             {
-                if (_bottomNavigationView.SelectedItemId != item.ItemId && Element.Children.Count > selectedIndex && selectedIndex >= 0)
+                if (_bottomNavigationView != null)
                 {
-                    Element.CurrentPage = Element.Children[selectedIndex];
-                    UpdateIcons(selectedIndex);
-                }
-                else
-                {
-                    UpdateIcons(-1);
+                    if (_bottomNavigationView.SelectedItemId != item.ItemId && Element.Children.Count > selectedIndex && selectedIndex >= 0)
+                    {
+                        Element.CurrentPage = Element.Children[selectedIndex];
+                        UpdateIcons(selectedIndex);
+                    }
+                    else if(_bottomNavigationView.SelectedItemId == item.ItemId)
+                    {
+                        UpdateIcons(selectedIndex);
+                    }
+                    else
+                    {
+                        UpdateIcons(-1);
+                    }
                 }
                 return true;
             }
