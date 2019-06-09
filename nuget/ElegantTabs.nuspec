@@ -1,7 +1,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>ElegantTabs</id>
-    <version>0.1.2-pre</version>
+    <version>0.2.2-pre</version>
     <title>Elegant Tabs for Xamarin.Forms</title>
 	<iconUrl>https://raw.githubusercontent.com/muhaym/ElegantTabs/master/nuget/ElegantTabs.png</iconUrl>
     <authors>Abdul Muhaymin Arif</authors>
@@ -14,24 +14,24 @@
 	<copyright>Copyright ©2018 Fantacode Solutions LLP</copyright>
     <tags>xamarin xamarin.forms badge tab tabbar eleganttabs elegant tabs monodroid Xamarin.iOS android ios</tags>
     <releaseNotes>
-      [0.1.0-pre] 
-      Initial Prelaunch with limited features and potential issues.
+	  [0.1.3-pre]
+      Minor Fix for Android Renderer
     </releaseNotes>
     <dependencies>
       <group targetFramework="netstandard1.4">
-        <dependency id="Xamarin.Forms" version="3.1.0.583944" />
+        <dependency id="Xamarin.Forms" version=" 3.6.0.220655" />
       </group>
       <group targetFramework="portable-net45+win+wpa81+wp80">
-        <dependency id="Xamarin.Forms" version="3.1.0.583944" />
+        <dependency id="Xamarin.Forms" version=" 3.6.0.220655" />
       </group>
       <group targetFramework="MonoAndroid10">
-        <dependency id="Xamarin.Forms" version="3.1.0.583944" />
+        <dependency id="Xamarin.Forms" version=" 3.6.0.220655" />
       </group>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Xamarin.Forms" version="3.1.0.583944" />
+        <dependency id="Xamarin.Forms" version=" 3.6.0.220655" />
       </group>
       <group targetFramework="net45">
-        <dependency id="Xamarin.Forms" version="3.1.0.583944" />
+        <dependency id="Xamarin.Forms" version=" 3.6.0.220655" />
       </group>
     </dependencies>
   </metadata>

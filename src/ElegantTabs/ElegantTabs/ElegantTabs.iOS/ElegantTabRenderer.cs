@@ -56,7 +56,7 @@ namespace ElegantTabs.iOS
         
         async protected override Task<Tuple<UIImage, UIImage>> GetIcon(Page page)
         {
-            var pageIcon = page.Icon?.File;
+            var pageIcon = ((FileImageSource)page.IconImageSource).File ?? page.Icon?.File;
             if (!string.IsNullOrWhiteSpace(pageIcon))
             {
                 var icon = UIImage.FromBundle(pageIcon);

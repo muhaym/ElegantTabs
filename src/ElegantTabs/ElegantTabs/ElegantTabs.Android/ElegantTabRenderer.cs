@@ -11,6 +11,8 @@ using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using View = Android.Views.View;
 using System.Linq;
 using Android.Support.Design.Internal;
+using Xamarin.Forms;
+using Android.Support.Design.BottomNavigation;
 
 namespace ElegantTabs.Droid
 {
@@ -40,7 +42,7 @@ namespace ElegantTabs.Droid
                     {
                         _bottomNavigationView.SetOnNavigationItemSelectedListener(this);
                         _bottomNavigationView.ItemIconTintList = null;
-                        _bottomNavigationView.SetShiftMode(false, false);
+                        _bottomNavigationView.LabelVisibilityMode = LabelVisibilityMode.LabelVisibilityLabeled;
                     }
                     if (_bottomTabStrip == null)
                     {
@@ -68,7 +70,7 @@ namespace ElegantTabs.Droid
                         var icon = Transforms.GetSelectedIcon(page);
                         if (string.IsNullOrWhiteSpace(icon))
                         {
-                            menu.GetItem(i).SetIcon(IdFromTitle(page.Icon, ResourceManager.DrawableClass));
+                            menu.GetItem(i).SetIcon(IdFromTitle(page.IconImageSource ?? page.Icon, ResourceManager.DrawableClass));
                         }
                         else
                         {
@@ -77,15 +79,39 @@ namespace ElegantTabs.Droid
                     }
                     else
                     {
-                        menu.GetItem(i).SetIcon(IdFromTitle(page.Icon, ResourceManager.DrawableClass));
+                        menu.GetItem(i).SetIcon(IdFromTitle(page.IconImageSource ?? page.Icon, ResourceManager.DrawableClass));
                     }
                 }
                 else
                 {
-                    menu.GetItem(i).SetIcon(IdFromTitle(page.Icon, ResourceManager.DrawableClass));
+                    menu.GetItem(i).SetIcon(IdFromTitle(page.IconImageSource ?? page.Icon, ResourceManager.DrawableClass));
                 }
             }
             UpdateTabs();
+        }
+
+        private int IdFromTitle(ImageSource imageSource, Type type)
+        {
+            if (imageSource is FileImageSource)
+            {
+                string name = System.IO.Path.GetFileNameWithoutExtension((FileImageSource)imageSource);
+                int id = GetId(type, name);
+                return id;
+            }
+            else if (imageSource is FontImageSource)
+            {
+                throw new Exception("FontImageSource not yet supported");
+            }
+            else if (imageSource is StreamImageSource)
+            {
+                throw new Exception("StreamImageSource not yet supported");
+            }
+            else
+            {
+                //imageSource will be UriImageSource
+                throw new Exception("UriImageSource not yet supported");
+            }
+            
         }
 
         public new bool OnNavigationItemSelected(IMenuItem item)
@@ -105,7 +131,7 @@ namespace ElegantTabs.Droid
                         Element.CurrentPage = Element.Children[selectedIndex];
                         UpdateIcons(selectedIndex);
                     }
-                    else if(_bottomNavigationView.SelectedItemId == item.ItemId)
+                    else if (_bottomNavigationView.SelectedItemId == item.ItemId)
                     {
                         UpdateIcons(selectedIndex);
                     }
