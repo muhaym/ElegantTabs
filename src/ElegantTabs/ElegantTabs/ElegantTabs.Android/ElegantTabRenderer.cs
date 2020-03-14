@@ -119,7 +119,7 @@ namespace ElegantTabs.Droid
             if (Element == null)
                 return false;
 
-            int selectedIndex = item.Order;
+            int selectedIndex = item.ItemId;
             Transforms.TabIconClickedFunction(selectedIndex, this);
             var page = Element.GetChildPageWithTransform(selectedIndex);
             if (!Transforms.GetDisableLoad(page))
