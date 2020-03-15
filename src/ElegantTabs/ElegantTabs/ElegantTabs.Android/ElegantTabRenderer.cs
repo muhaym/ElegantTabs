@@ -119,21 +119,22 @@ namespace ElegantTabs.Droid
             if (Element == null)
                 return false;
 
-            int selectedIndex = item.ItemId;
-            Transforms.TabIconClickedFunction(selectedIndex, this);
-            var page = Element.GetChildPageWithTransform(selectedIndex);
+
+            var id = item.ItemId;
+            Transforms.TabIconClickedFunction(id, this);
+            var page = Element.GetChildPageWithTransform(id);
             if (!Transforms.GetDisableLoad(page))
             {
                 if (_bottomNavigationView != null)
                 {
-                    if (_bottomNavigationView.SelectedItemId != item.ItemId && Element.Children.Count > selectedIndex && selectedIndex >= 0)
+                    if (_bottomNavigationView.SelectedItemId != id && Element.Children.Count > id && id >= 0)
                     {
-                        Element.CurrentPage = Element.Children[selectedIndex];
-                        UpdateIcons(selectedIndex);
+                        Element.CurrentPage = Element.Children[id];
+                        UpdateIcons(id);
                     }
-                    else if (_bottomNavigationView.SelectedItemId == item.ItemId)
+                    else if (_bottomNavigationView.SelectedItemId == id)
                     {
-                        UpdateIcons(selectedIndex);
+                        UpdateIcons(id);
                     }
                     else
                     {
