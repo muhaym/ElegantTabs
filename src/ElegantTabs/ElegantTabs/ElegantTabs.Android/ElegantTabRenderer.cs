@@ -1,6 +1,5 @@
 ﻿using System;
 using Xamarin.Forms.Platform.Android.AppCompat;
-using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Widget;
 using Xamarin.Forms.Platform.Android;
@@ -10,9 +9,8 @@ using TabbedPage = Xamarin.Forms.TabbedPage;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using View = Android.Views.View;
 using System.Linq;
-using Android.Support.Design.Internal;
 using Xamarin.Forms;
-using Android.Support.Design.BottomNavigation;
+using Google.Android.Material.BottomNavigation;
 
 namespace ElegantTabs.Droid
 {
@@ -70,7 +68,7 @@ namespace ElegantTabs.Droid
                         var icon = Transforms.GetSelectedIcon(page);
                         if (string.IsNullOrWhiteSpace(icon))
                         {
-                            menu.GetItem(i).SetIcon(IdFromTitle(page.IconImageSource ?? page.Icon, ResourceManager.DrawableClass));
+                            menu.GetItem(i).SetIcon(IdFromTitle(page.IconImageSource ?? page.IconImageSource, ResourceManager.DrawableClass));
                         }
                         else
                         {
@@ -79,12 +77,12 @@ namespace ElegantTabs.Droid
                     }
                     else
                     {
-                        menu.GetItem(i).SetIcon(IdFromTitle(page.IconImageSource ?? page.Icon, ResourceManager.DrawableClass));
+                        menu.GetItem(i).SetIcon(IdFromTitle(page.IconImageSource ?? page.IconImageSource, ResourceManager.DrawableClass));
                     }
                 }
                 else
                 {
-                    menu.GetItem(i).SetIcon(IdFromTitle(page.IconImageSource ?? page.Icon, ResourceManager.DrawableClass));
+                    menu.GetItem(i).SetIcon(IdFromTitle(page.IconImageSource ?? page.IconImageSource, ResourceManager.DrawableClass));
                 }
             }
             UpdateTabs();
