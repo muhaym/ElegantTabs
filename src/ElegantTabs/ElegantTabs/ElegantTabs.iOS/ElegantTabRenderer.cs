@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using UIKit;
 using Xamarin.Forms.Internals;
-using static Xamarin.Forms.PlatformConfiguration.iOSSpecific.Page;
-using PageUIStatusBarAnimation = Xamarin.Forms.PlatformConfiguration.iOSSpecific.UIStatusBarAnimation;
 using ElegantTabs.Abstraction;
 using Xamarin.Forms.Platform.iOS;
-using System.Linq;
 using Xamarin.Forms;
 
 namespace ElegantTabs.iOS
